@@ -1,0 +1,39 @@
+﻿{QTtext}{timescale:100}{font:Verdana}{size:20}{backColor:0,0,0}
+{textColor:65280,65280,65280}{width:960}{justify:center}
+{plain}
+
+[00:00:00.02]
+I'm Ed Bannon,
+
+[00:00:01.01]
+a lifelong Northwest sider and a
+proud dad of three CPS graduates.
+
+[00:00:06.00]
+I know the pride in great teachers,
+
+[00:00:07.08]
+the frustration of
+under-resourced classrooms,
+
+[00:00:10.03]
+and the need for a school
+board that listens.
+
+[00:00:13.01]
+For more than a decade as a volunteer,
+I've worked alongside parents, teachers,
+
+[00:00:16.09]
+and our community to make a
+difference for our students.
+
+[00:00:20.03]
+And I'm not backed by billionaires who
+want to privatize our schools and profit
+
+[00:00:24.02]
+off of our children. Vote Ed Bannon for
+school board on or before November 3rd.
+
+[00:00:28.07]
