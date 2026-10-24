@@ -18,7 +18,7 @@
     display: flex !important;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     column-gap: 16px;
 }
 
