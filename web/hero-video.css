@@ -129,14 +129,64 @@
 }
 
 /* MOBILE — matches the site's 700px breakpoint.
-   The stage gets taller so the 9:16 video isn't tiny on phones. */
+   The video sits in the page flow, centered, and the
+   "Education starts with Ed!" note + stars move below it. */
 @media (max-width: 700px) {
     .hero-image-wrap:has(.hero-video) {
-        aspect-ratio: 400 / 600 !important;
+        aspect-ratio: auto !important;
+        height: auto !important;
+
+        display: flex !important;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        column-gap: 14px;
     }
 
     .hero-image-wrap .hero-video {
-        left: 1%;
+        position: relative !important;
+        top: auto;
+        left: auto;
+        height: auto;
+
+        flex: 0 0 86%;
+        margin: 0 7% !important;
+    }
+
+    .hero-video__frame,
+    .hero-video.has-captions .hero-video__frame {
+        width: 100%;
+        height: auto;
+    }
+
+    /* NOTE + STARS ON ONE ROW UNDER THE VIDEO */
+    .hero-image-wrap:has(.hero-video) .hero-handwritten {
+        position: relative !important;
+        top: auto;
+        right: auto;
+
+        width: auto !important;
+        margin: 18px 0 8px !important;
+
+        transform: rotate(-3deg);
+    }
+
+    .hero-image-wrap:has(.hero-video) .hero-handwritten p {
+        white-space: nowrap !important;
+    }
+
+    .hero-image-wrap:has(.hero-video) .hero-star.portrait-stars {
+        position: relative !important;
+        right: auto !important;
+        bottom: auto !important;
+
+        width: 96px !important;
+        margin: 18px 0 8px !important;
+    }
+
+    /* Skyline stays a faint backdrop behind the video */
+    .hero-image-wrap:has(.hero-video) .hero-skyline {
+        bottom: 14% !important;
     }
 
     .hero-video__controls button {
