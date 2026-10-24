@@ -21,8 +21,8 @@ body{margin:0;background:#2b2b2b;font-family:Inter,sans-serif}
 
    Computers + tablets: wide 16:9 video filling the photo column.
    Phones (700px and under): tall 9:16 video, centered.
-   On both, "Education starts with Ed!" and the stars sit
-   on one row under the video.
+   On both, "Education starts with Ed!" is centered under the
+   video and the stars sit at the bottom right over the skyline.
    ================================================== */
 
 /* STAGE — sized by its contents; blue boxes removed */
@@ -145,7 +145,7 @@ body{margin:0;background:#2b2b2b;font-family:Inter,sans-serif}
     border-radius: 12px;
 }
 
-/* NOTE + STARS ON ONE ROW UNDER THE VIDEO */
+/* NOTE CENTERED UNDER THE VIDEO */
 .hero-image-wrap:has(.hero-video) .hero-handwritten {
     position: relative !important;
     z-index: 5;
@@ -164,15 +164,17 @@ body{margin:0;background:#2b2b2b;font-family:Inter,sans-serif}
     white-space: nowrap !important;
 }
 
+/* Stars sit at the bottom right, over the skyline */
 .hero-image-wrap:has(.hero-video) .hero-star.portrait-stars {
-    position: relative !important;
+    position: absolute !important;
+    z-index: 4;
     top: auto !important;
-    right: auto !important;
+    right: 0 !important;
     left: auto !important;
-    bottom: auto !important;
+    bottom: 14px !important;
 
     width: 110px !important;
-    margin: 16px 0 4px !important;
+    margin: 0 !important;
 }
 
 /* Skyline: faint backdrop behind the note row */
@@ -219,8 +221,8 @@ body{margin:0;background:#2b2b2b;font-family:Inter,sans-serif}
     }
 
     .hero-image-wrap:has(.hero-video) .hero-skyline {
-        bottom: 14% !important;
-        height: 69% !important;
+        bottom: 0 !important;
+        height: 60% !important;
     }
 }
 
