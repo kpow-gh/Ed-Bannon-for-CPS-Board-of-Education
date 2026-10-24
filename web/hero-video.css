@@ -6,8 +6,9 @@
 
    Computers + tablets: wide 16:9 video filling the photo column.
    Phones (700px and under): tall 9:16 video, centered.
-   On both, "Education starts with Ed!" is centered under the
-   video and the stars sit at the bottom right over the skyline.
+   On both, "Education starts with Ed!" sits on one straight line
+   under the video with the stars centered beneath it, and the
+   skyline moves behind the headline on the text side.
    ================================================== */
 
 /* STAGE — sized by its contents; blue boxes removed */
@@ -130,7 +131,8 @@
     border-radius: 12px;
 }
 
-/* NOTE CENTERED UNDER THE VIDEO */
+/* NOTE — one straight line, centered under the video.
+   (The line breaks inside the note are removed in the editor.) */
 .hero-image-wrap:has(.hero-video) .hero-handwritten {
     position: relative !important;
     z-index: 5;
@@ -139,35 +141,62 @@
     left: auto !important;
     bottom: auto !important;
 
-    width: auto !important;
-    margin: 16px 0 4px !important;
+    flex: 0 0 100%;
+    width: 100% !important;
+    margin: 18px 0 6px !important;
 
-    transform: rotate(-3deg);
+    transform: none !important;
 }
 
 .hero-image-wrap:has(.hero-video) .hero-handwritten p {
+    text-align: center !important;
     white-space: nowrap !important;
 }
 
-/* Stars sit at the bottom right, over the skyline */
+/* STARS — centered under the note */
 .hero-image-wrap:has(.hero-video) .hero-star.portrait-stars {
-    position: absolute !important;
+    position: relative !important;
     z-index: 4;
     top: auto !important;
-    right: 0 !important;
+    right: auto !important;
     left: auto !important;
-    bottom: 14px !important;
+    bottom: auto !important;
 
-    width: 110px !important;
-    margin: 0 !important;
+    width: 120px !important;
+    margin: 0 auto !important;
 }
 
-/* Skyline: faint backdrop behind the note row */
+/* SKYLINE — moved behind the headline on the text side */
 .hero-image-wrap:has(.hero-video) .hero-skyline {
-    top: auto !important;
-    bottom: 0 !important;
-    right: 0 !important;
-    height: 45% !important;
+    display: none !important;
+}
+
+.hero-main:has(.hero-video) > .hero-left {
+    position: relative !important;
+}
+
+.hero-main:has(.hero-video) > .hero-left::before {
+    content: "";
+
+    position: absolute;
+    z-index: 0;
+    top: -40px;
+    left: 0;
+    right: 0;
+    height: 230px;
+
+    background: url("https://edbannon.com/wp-content/uploads/2026/09/Use-Chicago-Portrait-Background.png") left bottom / auto 100% no-repeat;
+    opacity: 0.2;
+
+    -webkit-mask-image: linear-gradient(to right, #000 0%, #000 70%, transparent 100%);
+    mask-image: linear-gradient(to right, #000 0%, #000 70%, transparent 100%);
+
+    pointer-events: none;
+}
+
+.hero-main:has(.hero-video) > .hero-left > * {
+    position: relative;
+    z-index: 1;
 }
 
 /* PHONES — tall video, centered */
@@ -201,12 +230,16 @@
         font-size: 13px;
     }
 
-    .hero-image-wrap:has(.hero-video) .hero-star.portrait-stars {
-        width: 96px !important;
+    .hero-image-wrap:has(.hero-video) .hero-handwritten {
+        margin: 16px 0 4px !important;
     }
 
-    .hero-image-wrap:has(.hero-video) .hero-skyline {
-        bottom: 0 !important;
-        height: 60% !important;
+    .hero-image-wrap:has(.hero-video) .hero-star.portrait-stars {
+        width: 100px !important;
+    }
+
+    .hero-main:has(.hero-video) > .hero-left::before {
+        top: -6px;
+        height: 110px;
     }
 }

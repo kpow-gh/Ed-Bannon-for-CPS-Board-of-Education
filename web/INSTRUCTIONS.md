@@ -46,7 +46,12 @@ The ad itself is unchanged; it has only been compressed for the web.
       File URLs you copied in step 1.
    6. Select the headshot image again, then choose **⋮ → Delete**.
       Leave the skyline, the "Education starts with Ed!" note and the stars alone.
-      The note and stars move to a row under the video automatically.
+      They move automatically: the note goes under the video with the stars
+      beneath it, and the skyline moves behind the headline.
+   7. Put the note on one line: click into the "Education starts with Ed!"
+      text, select all of it (Ctrl+A, or Cmd+A on a Mac, while the cursor is
+      in the note), and type `Education starts with Ed!` so there are no line
+      breaks.
 
 3. **Add the CSS.** Go to **Appearance → Editor → Styles**, open the **⋮** menu,
    then **Additional CSS**. Scroll to the very bottom and paste in all of
