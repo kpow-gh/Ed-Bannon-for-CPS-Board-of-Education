@@ -8,7 +8,7 @@
    Phones (700px and under): tall 9:16 video, centered.
    On both, "Education starts with Ed!" sits on one straight line
    under the video with the stars centered beneath it, and the
-   skyline moves behind the headline on the text side.
+   skyline moves into the open space in the middle of the text.
    ================================================== */
 
 /* STAGE — sized by its contents; blue boxes removed */
@@ -166,24 +166,27 @@
     margin: 0 auto !important;
 }
 
-/* SKYLINE — moved behind the headline on the text side */
+/* SKYLINE — moved to the open space in the middle of the text
+   column, behind "Running to put students first…", with its
+   base just above the buttons */
 .hero-image-wrap:has(.hero-video) .hero-skyline {
     display: none !important;
 }
 
-.hero-main:has(.hero-video) > .hero-left {
-    position: relative !important;
+.hero-main:has(.hero-video) .hero-intro {
+    position: relative;
+    z-index: 0;
 }
 
-.hero-main:has(.hero-video) > .hero-left::before {
+.hero-main:has(.hero-video) .hero-intro::before {
     content: "";
 
     position: absolute;
-    z-index: 0;
-    top: -40px;
+    z-index: -1;
     left: 0;
     right: 0;
-    height: 230px;
+    bottom: -90px;
+    height: 170px;
 
     background: url("https://edbannon.com/wp-content/uploads/2026/09/Use-Chicago-Portrait-Background.png") left bottom / auto 100% no-repeat;
     opacity: 0.2;
@@ -194,9 +197,12 @@
     pointer-events: none;
 }
 
-.hero-main:has(.hero-video) > .hero-left > * {
-    position: relative;
-    z-index: 1;
+/* TABLETS — less room between the sentence and the buttons */
+@media (min-width: 701px) and (max-width: 1000px) {
+    .hero-main:has(.hero-video) .hero-intro::before {
+        bottom: -12px;
+        height: 120px;
+    }
 }
 
 /* PHONES — tall video, centered */
@@ -238,8 +244,8 @@
         width: 100px !important;
     }
 
-    .hero-main:has(.hero-video) > .hero-left::before {
-        top: -6px;
+    .hero-main:has(.hero-video) .hero-intro::before {
+        bottom: -26px;
         height: 110px;
     }
 }
