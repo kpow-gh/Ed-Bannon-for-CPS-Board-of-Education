@@ -1,6 +1,8 @@
 # Hero video: install steps (Option B)
 
-The headshot in the homepage hero is replaced by the 30-second campaign ad.
+The headshot in the homepage hero is replaced by the 30-second campaign ad:
+the wide version on computers and tablets, the tall version on phones
+(700px wide or less).
 The ad itself is unchanged; it has only been compressed for the web.
 
 ## What happens on the page
@@ -17,8 +19,10 @@ The ad itself is unchanged; it has only been compressed for the web.
 
 | File | What it is |
 |---|---|
-| `ed-bannon-ad-web.mp4` | The ad: 720×1280 with audio, 3.5 MB (was 24 MB) |
-| `ed-bannon-ad-poster.jpg` | The "Vote Ed Bannon" card still |
+| `ed-bannon-ad-wide.mp4` | Wide ad for computers and tablets: 1280×720 with audio, 3.4 MB |
+| `ed-bannon-ad-poster-wide.jpg` | Wide "Vote Ed Bannon" card still |
+| `ed-bannon-ad-tall.mp4` | Tall ad for phones: 720×1280 with audio, 3.5 MB |
+| `ed-bannon-ad-poster-tall.jpg` | Tall "Vote Ed Bannon" card still |
 | `ed-bannon-ad-captions.vtt` | Captions, converted from the uploaded caption file |
 | `hero-video-block.html` | Code for a Custom HTML block |
 | `hero-video.css` | CSS to add at the end of Additional CSS |
@@ -26,8 +30,9 @@ The ad itself is unchanged; it has only been compressed for the web.
 ## Steps
 
 1. **Upload the media.** In WordPress, go to **Media → Add New** and upload
-   `ed-bannon-ad-web.mp4`, `ed-bannon-ad-poster.jpg` and `ed-bannon-ad-captions.vtt`. Open each one and
-   copy its **File URL**.
+   all five media files: `ed-bannon-ad-wide.mp4`, `ed-bannon-ad-poster-wide.jpg`,
+   `ed-bannon-ad-tall.mp4`, `ed-bannon-ad-poster-tall.jpg` and
+   `ed-bannon-ad-captions.vtt`. Open each one and copy its **File URL**.
 
 2. **Add the video block.**
    1. Go to **Pages → Home - New → Edit**.
@@ -37,10 +42,11 @@ The ad itself is unchanged; it has only been compressed for the web.
    3. With the headshot selected, open the block's **⋮** menu and choose
       **Add before**. Add a **Custom HTML** block.
    4. Paste the contents of `hero-video-block.html` into the Custom HTML block.
-   5. Replace the three URLs (`…ed-bannon-ad-poster.jpg`, `…ed-bannon-ad-web.mp4`
-      and `…ed-bannon-ad-captions.vtt`) with the File URLs you copied in step 1.
+   5. Replace the five URLs (each ends in the matching file name) with the
+      File URLs you copied in step 1.
    6. Select the headshot image again, then choose **⋮ → Delete**.
       Leave the skyline, the "Education starts with Ed!" note and the stars alone.
+      The note and stars move to a row under the video automatically.
 
 3. **Add the CSS.** Go to **Appearance → Editor → Styles**, open the **⋮** menu,
    then **Additional CSS**. Scroll to the very bottom and paste in all of
@@ -60,7 +66,7 @@ of the block. This happens when the account isn't a full Administrator.
 
 Captions are already switched on in the block code. Upload
 `ed-bannon-ad-captions.vtt` under **Media → Add New** along with the video, and put its
-File URL in the `<track …>` line (the third URL in the block).
+File URL in the `<track …>` line.
 
 They appear in a navy strip under the video, so they never cover the ad's own
 on-screen text. To fix a typo later, edit the `.vtt` file in any text editor and

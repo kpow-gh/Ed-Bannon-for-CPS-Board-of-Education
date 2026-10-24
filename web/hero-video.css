@@ -3,11 +3,23 @@
    UNIQUE ANCHOR: HERO-VIDEO-2026
    Paste at the very END of Additional CSS so it wins
    over the earlier hero rules.
+
+   Computers + tablets: wide 16:9 video filling the photo column.
+   Phones (700px and under): tall 9:16 video, centered.
+   On both, "Education starts with Ed!" and the stars sit
+   on one row under the video.
    ================================================== */
 
-/* Remove the two blue boxes and give the video a taller stage */
+/* STAGE — sized by its contents; blue boxes removed */
 .hero-image-wrap:has(.hero-video) {
-    aspect-ratio: 620 / 700 !important;
+    aspect-ratio: auto !important;
+    height: auto !important;
+
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    column-gap: 16px;
 }
 
 .hero-image-wrap:has(.hero-video)::before,
@@ -15,25 +27,21 @@
     display: none !important;
 }
 
+/* VIDEO + CAPTION STRIP */
 .hero-image-wrap .hero-video {
-    position: absolute !important;
+    position: relative !important;
     z-index: 3;
 
-    top: 0;
-    left: 10%;
-    height: 100%;
+    flex: 0 0 100%;
 
     margin: 0 !important;
     padding: 0 !important;
 }
 
-/* 9:16 frame sized from the stage height, so the whole ad shows
-   (nothing cropped: the card text and "Paid for by" line stay visible) */
 .hero-video__frame {
     position: relative;
-    height: 100%;
-    width: auto;
-    aspect-ratio: 9 / 16;
+    width: 100%;
+    aspect-ratio: 16 / 9;
 
     border-radius: 22px;
     overflow: hidden;
@@ -96,13 +104,9 @@
     padding: 0 !important;
 }
 
-/* CAPTION STRIP — only shown once a captions file is added */
+/* CAPTION STRIP — only shown when the captions file loads */
 .hero-video__caption {
     display: none;
-}
-
-.hero-video.has-captions .hero-video__frame {
-    height: calc(100% - 76px);
 }
 
 .hero-video.has-captions .hero-video__caption {
@@ -110,16 +114,14 @@
     align-items: center;
     justify-content: center;
 
-    width: 0;
-    min-width: 100%;
-    height: 68px;
+    height: 52px;
     margin: 8px 0 0;
     overflow: hidden;
-    padding: 6px 12px;
+    padding: 6px 16px;
     box-sizing: border-box;
 
     font-family: "Inter", sans-serif;
-    font-size: 13.5px;
+    font-size: 14px;
     line-height: 1.3;
     text-align: center;
 
@@ -128,65 +130,58 @@
     border-radius: 12px;
 }
 
-/* MOBILE — matches the site's 700px breakpoint.
-   The video sits in the page flow, centered, and the
-   "Education starts with Ed!" note + stars move below it. */
+/* NOTE + STARS ON ONE ROW UNDER THE VIDEO */
+.hero-image-wrap:has(.hero-video) .hero-handwritten {
+    position: relative !important;
+    z-index: 5;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    bottom: auto !important;
+
+    width: auto !important;
+    margin: 16px 0 4px !important;
+
+    transform: rotate(-3deg);
+}
+
+.hero-image-wrap:has(.hero-video) .hero-handwritten p {
+    white-space: nowrap !important;
+}
+
+.hero-image-wrap:has(.hero-video) .hero-star.portrait-stars {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    bottom: auto !important;
+
+    width: 110px !important;
+    margin: 16px 0 4px !important;
+}
+
+/* Skyline: faint backdrop behind the note row */
+.hero-image-wrap:has(.hero-video) .hero-skyline {
+    top: auto !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    height: 45% !important;
+}
+
+/* PHONES — tall video, centered */
 @media (max-width: 700px) {
     .hero-image-wrap:has(.hero-video) {
-        aspect-ratio: auto !important;
-        height: auto !important;
-
-        display: flex !important;
-        flex-wrap: wrap;
-        align-items: center;
         justify-content: center;
         column-gap: 14px;
     }
 
     .hero-image-wrap .hero-video {
-        position: relative !important;
-        top: auto;
-        left: auto;
-        height: auto;
-
         flex: 0 0 86%;
         margin: 0 7% !important;
     }
 
-    .hero-video__frame,
-    .hero-video.has-captions .hero-video__frame {
-        width: 100%;
-        height: auto;
-    }
-
-    /* NOTE + STARS ON ONE ROW UNDER THE VIDEO */
-    .hero-image-wrap:has(.hero-video) .hero-handwritten {
-        position: relative !important;
-        top: auto;
-        right: auto;
-
-        width: auto !important;
-        margin: 18px 0 8px !important;
-
-        transform: rotate(-3deg);
-    }
-
-    .hero-image-wrap:has(.hero-video) .hero-handwritten p {
-        white-space: nowrap !important;
-    }
-
-    .hero-image-wrap:has(.hero-video) .hero-star.portrait-stars {
-        position: relative !important;
-        right: auto !important;
-        bottom: auto !important;
-
-        width: 96px !important;
-        margin: 18px 0 8px !important;
-    }
-
-    /* Skyline stays a faint backdrop behind the video */
-    .hero-image-wrap:has(.hero-video) .hero-skyline {
-        bottom: 14% !important;
+    .hero-video__frame {
+        aspect-ratio: 9 / 16;
     }
 
     .hero-video__controls button {
@@ -199,7 +194,17 @@
     }
 
     .hero-video.has-captions .hero-video__caption {
-        font-size: 13px;
+        height: 68px;
         padding: 6px 10px;
+        font-size: 13px;
+    }
+
+    .hero-image-wrap:has(.hero-video) .hero-star.portrait-stars {
+        width: 96px !important;
+    }
+
+    .hero-image-wrap:has(.hero-video) .hero-skyline {
+        bottom: 14% !important;
+        height: 69% !important;
     }
 }

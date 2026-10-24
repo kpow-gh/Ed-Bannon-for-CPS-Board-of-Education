@@ -2,17 +2,19 @@
   HERO VIDEO — paste into a Custom HTML block that replaces the headshot
   image inside the "hero-image-wrap" group on the Home - New page.
 
-  Replace the three URLs below with the File URLs WordPress gives you after
-  uploading ed-bannon-ad-web.mp4 and ed-bannon-ad-poster.jpg.
-  Upload ed-bannon-ad-captions.vtt too and put its File URL in the <track> line.
+  Replace the five URLs below with the File URLs WordPress gives you after
+  uploading the files. Computers and tablets get the wide video; phones
+  (700px wide or less) get the tall one. Both use the same captions file.
 -->
-<figure class="hero-video" data-card-start="25.04">
+<figure class="hero-video" data-card-start="25.04"
+        data-video-wide="https://edbannon.com/wp-content/uploads/ed-bannon-ad-wide.mp4"
+        data-poster-wide="https://edbannon.com/wp-content/uploads/ed-bannon-ad-poster-wide.jpg"
+        data-video-tall="https://edbannon.com/wp-content/uploads/ed-bannon-ad-tall.mp4"
+        data-poster-tall="https://edbannon.com/wp-content/uploads/ed-bannon-ad-poster-tall.jpg">
   <div class="hero-video__frame">
     <video class="hero-video__media"
-           muted playsinline loop preload="auto"
-           poster="https://edbannon.com/wp-content/uploads/ed-bannon-ad-poster.jpg"
+           muted playsinline loop preload="none"
            aria-label="Ed Bannon campaign video">
-      <source src="https://edbannon.com/wp-content/uploads/ed-bannon-ad-web.mp4" type="video/mp4">
       <track kind="captions" srclang="en" label="English" default src="https://edbannon.com/wp-content/uploads/ed-bannon-ad-captions.vtt">
     </video>
     <div class="hero-video__controls">
@@ -34,6 +36,13 @@
   var captionBox = fig.querySelector('.hero-video__caption');
   var cardStart = parseFloat(fig.getAttribute('data-card-start')) || 0;
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Pick the tall video for phones and the wide one for everything else.
+  // Must match the 700px breakpoint in the CSS.
+  var shape = window.matchMedia('(max-width: 700px)').matches ? 'tall' : 'wide';
+  video.poster = fig.getAttribute('data-poster-' + shape);
+  video.src = fig.getAttribute('data-video-' + shape);
+  video.preload = 'auto';
 
   function setPaused(paused) {
     pauseBtn.innerHTML = paused ? '<span aria-hidden="true">▶</span>' : '<span aria-hidden="true">❚❚</span>';
