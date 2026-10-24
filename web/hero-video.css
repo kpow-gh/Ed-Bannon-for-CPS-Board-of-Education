@@ -7,7 +7,7 @@
    Computers + tablets: wide 16:9 video filling the photo column.
    Phones (700px and under): tall 9:16 video, centered.
    On both, "Education starts with Ed!" sits on one straight line
-   under the video with the stars centered beneath it, and the
+   under the video, the stars are hidden, and the
    skyline moves into the open space in the middle of the text.
    ================================================== */
 
@@ -153,17 +153,9 @@
     white-space: nowrap !important;
 }
 
-/* STARS — centered under the note */
+/* STARS — hidden */
 .hero-image-wrap:has(.hero-video) .hero-star.portrait-stars {
-    position: relative !important;
-    z-index: 4;
-    top: auto !important;
-    right: auto !important;
-    left: auto !important;
-    bottom: auto !important;
-
-    width: 120px !important;
-    margin: 0 auto !important;
+    display: none !important;
 }
 
 /* SKYLINE — moved to the open space in the middle of the text
@@ -189,7 +181,7 @@
     height: 170px;
 
     background: url("https://edbannon.com/wp-content/uploads/2026/09/Use-Chicago-Portrait-Background.png") left bottom / auto 100% no-repeat;
-    opacity: 0.2;
+    opacity: 0.1;
 
     -webkit-mask-image: linear-gradient(to right, #000 0%, #000 70%, transparent 100%);
     mask-image: linear-gradient(to right, #000 0%, #000 70%, transparent 100%);
@@ -238,10 +230,6 @@
 
     .hero-image-wrap:has(.hero-video) .hero-handwritten {
         margin: 16px 0 4px !important;
-    }
-
-    .hero-image-wrap:has(.hero-video) .hero-star.portrait-stars {
-        width: 100px !important;
     }
 
     .hero-main:has(.hero-video) .hero-intro::before {
