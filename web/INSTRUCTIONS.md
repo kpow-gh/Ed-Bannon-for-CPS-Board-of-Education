@@ -19,13 +19,14 @@ The ad itself is unchanged; it has only been compressed for the web.
 |---|---|
 | `ed-bannon-ad-web.mp4` | The ad: 720×1280 with audio, 3.5 MB (was 24 MB) |
 | `ed-bannon-ad-poster.jpg` | The "Vote Ed Bannon" card still |
+| `ed-bannon-ad-captions.vtt` | Captions, converted from the uploaded caption file |
 | `hero-video-block.html` | Code for a Custom HTML block |
 | `hero-video.css` | CSS to add at the end of Additional CSS |
 
 ## Steps
 
 1. **Upload the media.** In WordPress, go to **Media → Add New** and upload
-   `ed-bannon-ad-web.mp4` and `ed-bannon-ad-poster.jpg`. Open each one and
+   `ed-bannon-ad-web.mp4`, `ed-bannon-ad-poster.jpg` and `ed-bannon-ad-captions.vtt`. Open each one and
    copy its **File URL**.
 
 2. **Add the video block.**
@@ -36,8 +37,8 @@ The ad itself is unchanged; it has only been compressed for the web.
    3. With the headshot selected, open the block's **⋮** menu and choose
       **Add before**. Add a **Custom HTML** block.
    4. Paste the contents of `hero-video-block.html` into the Custom HTML block.
-   5. Replace the two URLs (`…ed-bannon-ad-poster.jpg` and `…ed-bannon-ad-web.mp4`)
-      with the File URLs you copied in step 1.
+   5. Replace the three URLs (`…ed-bannon-ad-poster.jpg`, `…ed-bannon-ad-web.mp4`
+      and `…ed-bannon-ad-captions.vtt`) with the File URLs you copied in step 1.
    6. Select the headshot image again, then choose **⋮ → Delete**.
       Leave the skyline, the "Education starts with Ed!" note and the stars alone.
 
@@ -55,11 +56,15 @@ the HERO-VIDEO-2026 CSS section.
 **If the video never starts:** WordPress may have stripped the `<script>` part
 of the block. This happens when the account isn't a full Administrator.
 
-## Captions (once the script is ready)
+## Captions
 
-1. Upload the captions file `ed-bannon-ad-captions.vtt` under Media.
-2. In the Custom HTML block, remove `<!--` and `-->` around the `<track …>` line.
-3. Replace that line's URL with the captions file's File URL.
+Captions are already switched on in the block code. Upload
+`ed-bannon-ad-captions.vtt` under **Media → Add New** along with the video, and put its
+File URL in the `<track …>` line (the third URL in the block).
 
-Captions appear in a navy strip under the video, so they never cover the ad's
-own on-screen text.
+They appear in a navy strip under the video, so they never cover the ad's own
+on-screen text. To fix a typo later, edit the `.vtt` file in any text editor and
+upload it again. If the captions file can't be found, the strip hides itself.
+
+**If WordPress won't accept the .vtt upload:** some hosts block that file type.
+Rename it to `ed-bannon-ad-captions.txt`, upload it, and use that File URL instead.
