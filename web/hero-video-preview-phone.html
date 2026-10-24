@@ -170,6 +170,14 @@ body{margin:0;background:#2b2b2b;font-family:Inter,sans-serif}
     white-space: nowrap !important;
 }
 
+/* Same size relative to the video on desktop and tablet:
+   30px on large screens, scaling down to about 21px on tablets */
+@media (min-width: 701px) {
+    .hero-image-wrap:has(.hero-video) .hero-handwritten p {
+        font-size: clamp(20px, 2.15vw, 30px) !important;
+    }
+}
+
 /* STARS — hidden */
 .hero-image-wrap:has(.hero-video) .hero-star.portrait-stars {
     display: none !important;

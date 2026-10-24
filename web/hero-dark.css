@@ -1,0 +1,69 @@
+/* ==================================================
+   HERO DARK LOOK (OPTIONAL)
+   UNIQUE ANCHOR: HERO-DARK-2026
+   The Option A look on the Option B layout: navy hero,
+   light text, white-filled buttons. Paste AFTER the
+   HERO-VIDEO-2026 section. Delete this section to go
+   back to the cream hero.
+   ================================================== */
+
+/* NAVY BAND, EDGE TO EDGE */
+.hero-main:has(.hero-video) {
+    background: #0d1b2e !important;
+    box-shadow: 0 0 0 100vmax #0d1b2e;
+    clip-path: inset(0 -100vmax);
+
+    margin-top: 0 !important;
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+}
+
+/* OFFICE LINE — brighter red so it reads on navy */
+.hero-main:has(.hero-video) .hero-office,
+.hero-main:has(.hero-video) .hero-office strong {
+    color: #ff5a63 !important;
+}
+
+/* CALLOUTS — light, with matching dashed underline */
+.hero-main:has(.hero-video) .hero-callout {
+    color: #e7e2d8 !important;
+    background-image: repeating-linear-gradient(
+        90deg,
+        rgba(231, 226, 216, 0.55) 0,
+        rgba(231, 226, 216, 0.55) 9px,
+        transparent 9px,
+        transparent 15px
+    ) !important;
+}
+
+/* INTRO SENTENCE */
+.hero-main:has(.hero-video) .hero-intro,
+.hero-main:has(.hero-video) .hero-intro strong {
+    color: #ffffff !important;
+}
+
+/* BUTTONS — white fill, colored text and border kept */
+.hero-main:has(.hero-video) .hero-buttons .wp-block-button__link {
+    background-color: #ffffff !important;
+}
+
+/* NOTE UNDER THE VIDEO */
+.hero-main:has(.hero-video) .hero-handwritten p {
+    color: #f7f2e8 !important;
+}
+
+/* CAPTION STRIP — lifted off the navy */
+.hero-main:has(.hero-video) .hero-video.has-captions .hero-video__caption {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+/* VIDEO FRAME — soft edge instead of a drop shadow */
+.hero-main:has(.hero-video) .hero-video__frame {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12), 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* SKYLINE — a little stronger so it shows on navy */
+.hero-main:has(.hero-video) .hero-intro::before {
+    opacity: 0.16;
+}
