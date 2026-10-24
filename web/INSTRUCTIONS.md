@@ -1,0 +1,65 @@
+# Hero video: install steps (Option B)
+
+The headshot in the homepage hero is replaced by the 30-second campaign ad.
+The ad itself is unchanged; it has only been compressed for the web.
+
+## What happens on the page
+
+- The frame first shows the **"Vote Ed Bannon" card** (a still image), while the video loads.
+- The video then autoplays **silently, starting on the card** (about 5 seconds),
+  and loops back to the beginning of the full ad.
+- **Sound on** restarts the ad from the beginning with audio.
+- **❚❚** pauses and resumes it.
+- Visitors whose device is set to reduce motion, and phones in Low Power Mode,
+  see the card still with a ▶ button instead of autoplay.
+
+## Files
+
+| File | What it is |
+|---|---|
+| `ed-bannon-ad-web.mp4` | The ad: 720×1280 with audio, 3.5 MB (was 24 MB) |
+| `ed-bannon-ad-poster.jpg` | The "Vote Ed Bannon" card still |
+| `hero-video-block.html` | Code for a Custom HTML block |
+| `hero-video.css` | CSS to add at the end of Additional CSS |
+
+## Steps
+
+1. **Upload the media.** In WordPress, go to **Media → Add New** and upload
+   `ed-bannon-ad-web.mp4` and `ed-bannon-ad-poster.jpg`. Open each one and
+   copy its **File URL**.
+
+2. **Add the video block.**
+   1. Go to **Pages → Home - New → Edit**.
+   2. Click Ed's headshot in the hero. To confirm it's the right block, open
+      **List View** (the ≡ icon at the top left): the selected Image should be
+      inside the group named `hero-image-wrap`.
+   3. With the headshot selected, open the block's **⋮** menu and choose
+      **Add before**. Add a **Custom HTML** block.
+   4. Paste the contents of `hero-video-block.html` into the Custom HTML block.
+   5. Replace the two URLs (`…ed-bannon-ad-poster.jpg` and `…ed-bannon-ad-web.mp4`)
+      with the File URLs you copied in step 1.
+   6. Select the headshot image again, then choose **⋮ → Delete**.
+      Leave the skyline, the "Education starts with Ed!" note and the stars alone.
+
+3. **Add the CSS.** Go to **Appearance → Editor → Styles**, open the **⋮** menu,
+   then **Additional CSS**. Scroll to the very bottom and paste in all of
+   `hero-video.css`.
+
+4. **Save** and check the homepage on a computer and on a phone. Then tap
+   **Sound on** to confirm the audio plays.
+
+**To undo:** delete the Custom HTML block, re-add the headshot image
+(`Header-Image-Ed-Bannon.png`, CSS class `hero-headshot-composite`), and remove
+the HERO-VIDEO-2026 CSS section.
+
+**If the video never starts:** WordPress may have stripped the `<script>` part
+of the block. This happens when the account isn't a full Administrator.
+
+## Captions (once the script is ready)
+
+1. Upload the captions file `ed-bannon-ad-captions.vtt` under Media.
+2. In the Custom HTML block, remove `<!--` and `-->` around the `<track …>` line.
+3. Replace that line's URL with the captions file's File URL.
+
+Captions appear in a navy strip under the video, so they never cover the ad's
+own on-screen text.
