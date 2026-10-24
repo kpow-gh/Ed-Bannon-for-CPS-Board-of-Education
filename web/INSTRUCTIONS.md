@@ -66,5 +66,5 @@ They appear in a navy strip under the video, so they never cover the ad's own
 on-screen text. To fix a typo later, edit the `.vtt` file in any text editor and
 upload it again. If the captions file can't be found, the strip hides itself.
 
-**If WordPress won't accept the .vtt upload:** some hosts block that file type.
-Rename it to `ed-bannon-ad-captions.txt`, upload it, and use that File URL instead.
+**If WordPress won't accept the .vtt upload,** don't rename it to another file
+type: some browsers then won't show the captions. Ask for help instead.
