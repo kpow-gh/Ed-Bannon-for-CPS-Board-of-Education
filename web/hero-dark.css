@@ -24,13 +24,13 @@
     color: #ff5a63 !important;
 }
 
-/* CALLOUTS — light, with matching dashed underline */
+/* CALLOUTS — same as before, in white */
 .hero-main:has(.hero-video) .hero-callout {
-    color: #e7e2d8 !important;
+    color: #ffffff !important;
     background-image: repeating-linear-gradient(
         90deg,
-        rgba(231, 226, 216, 0.55) 0,
-        rgba(231, 226, 216, 0.55) 9px,
+        rgba(255, 255, 255, 0.8) 0,
+        rgba(255, 255, 255, 0.8) 9px,
         transparent 9px,
         transparent 15px
     ) !important;
